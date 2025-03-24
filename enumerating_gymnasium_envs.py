@@ -23,6 +23,10 @@ if __name__ == '__main__':
     gym.register_envs(ale_py)
     current_gym_envs = gym.envs.registration.registry.keys()
     
+    list_discrete_action_spaces_envs = []
+    list_other_action_spaces = []
+    list_discrete_obs_spaces_envs = []
+    list_other_obs_spaces = []
 
     for env_name in current_gym_envs:
         if 'Joust' not in env_name and 'Warlords' not in env_name and 'MazeCraze' not in env_name and 'Combat' not in env_name and 'Reacher' not in env_name and 'Pusher' not in env_name and 'InvertedPendulum' not in env_name and 'InvertedDoublePendulum' not in env_name and 'Ant' not in env_name and 'HalfCheetah' not in env_name and 'Hopper' not in env_name and 'Walker2d' not in env_name and 'Swimmer' not in env_name and 'Humanoid' not in env_name and 'GymV21Environment' not in env_name and 'GymV26Environment' not in env_name:
@@ -43,10 +47,35 @@ if __name__ == '__main__':
                 print(env.metadata, file=f)
                 print("\n\nAction Space", file=f)
                 print(env.action_space, file=f)
+                if isinstance(env.action_space, gym.spaces.Discrete):
+                    list_discrete_action_spaces_envs.append((env_name, env.action_space))
+                else:
+                    list_other_action_spaces.append((env_name, env.action_space))
                 print("\nObservation Space", file=f)
                 print(env.observation_space, file=f)
+                if isinstance(env.observation_space, gym.spaces.Discrete):
+                    list_discrete_obs_spaces_envs.append((env_name,env.observation_space))
+                else:
+                    list_other_obs_spaces.append((env_name,env.observation_space))
                 print("\nEnvironment Dictionary", file=f)
                 print(env.__dict__, file=f)
 
                 print("\n\nInitial Obervation", file=f)
                 print(obs, file=f)
+    print(f"-----------------------")
+    print(f"Discrete Action Spaces Envs")
+    for env_name in list_discrete_action_spaces_envs:
+        print(env_name)
+    print(f"-----------------------")
+    print(f"Continuous Action Spaces Envs")
+    for env_name in list_other_action_spaces:
+        print(env_name)
+    print(f"-----------------------")
+    print(f"Discrete Observation Spaces Envs")
+    for env_name in list_discrete_obs_spaces_envs:
+        print(env_name)
+    print(f"-----------------------")
+    print(f"Continuous Action Spaces Envs")
+    for env_name in list_other_action_spaces:
+        print(env_name)
+    print(f"-----------------------")
