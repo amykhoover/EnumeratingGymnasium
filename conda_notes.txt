@@ -1,0 +1,38 @@
+pip install swig
+pip install gymnasium[box2d]
+pip install gymnasium[mujoco]
+pip install jax
+
+# pip install "gymnasium[all]"
+# conda install conda-forge::pygame 
+
+
+conda create --name Python3.12 python=3.12
+pip install gymnasium[atari]
+pip install pillow
+pip install gymnasium[classic-control]
+pip install swig
+pip install gymnasium[box2d]
+#pip install gymnasium[mujoco]
+conda install conda-forge::jax
+conda install conda-forge::flax 
+##pip install -U jax
+conda install conda-forge::mujoco-python 
+pip install "autorom[accept-rom-license]"
+
+
+/Users/amykhoover/.conda/envs/Python3.12/lib/python3.12/site-packages/AutoROM/roms
+Attempt to wrap ROM "/Users/amykhoover/.conda/envs/Python3.12/lib/python3.12/site-packages/ale_py/roms/combat.bin"(0ef64cdbecccb7049752a3de0b7ade14) failed.
+If you're using an MD5 mismatched ROM, please make sure the filename is in snake case.
+e.g., space_invaders.bin
+
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint:
+hint:   git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint:   git branch -m <name>
